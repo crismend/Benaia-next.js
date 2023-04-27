@@ -1,4 +1,3 @@
-
 import '@fontsource/montserrat/400.css'
 import '@fontsource/montserrat/500.css'
 import '@fontsource/montserrat/700.css'
@@ -8,6 +7,7 @@ import '@fontsource/roboto-slab/700.css'
 import '../styles/globals.css'
 
 import Head from 'next/head';
+import Layout from '@/components/layout';
 import { MantineProvider } from '@mantine/core';
 
 export default function App(props) {
@@ -28,7 +28,9 @@ export default function App(props) {
           colorScheme: 'light',
         }}
       >
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </MantineProvider>
     </>
   );

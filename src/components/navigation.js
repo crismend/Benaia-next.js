@@ -1,13 +1,36 @@
-import { createStyles, Header, Menu, Group, Center, Burger, Container, rem } from '@mantine/core';
+import { useState } from 'react';
+import {
+  createStyles,
+  Header,
+  Menu,
+  Group,
+  Center,
+  Burger,
+  Container,
+  UnstyledButton,
+  rem
+} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconChevronDown } from '@tabler/icons-react';
+import {
+  IconLogout,
+  IconHeart,
+  IconStar,
+  IconMessage,
+  IconSettings,
+  IconPlayerPause,
+  IconTrash,
+  IconSwitchHorizontal,
+  IconChevronDown,
+} from '@tabler/icons-react';
 import Image from 'next/image';
 
 const useStyles = createStyles((theme) => ({
   header: {
     display:"flex",
     justifyContent:"center",
-    alignItems: "center"
+    alignItems: "center",
+    background: "#f2f2f2",
+    padding: "5px"
   },
   inner: {
     height: rem(56),
@@ -51,11 +74,15 @@ const useStyles = createStyles((theme) => ({
 
 export default function HeaderMenu({ links }) {
   const [opened, { toggle }] = useDisclosure(false);
-  const { classes } = useStyles();
+  const [userMenuOpened, setUserMenuOpened] = useState(false);
+  const { classes, theme, cx } = useStyles();
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
+      <Menu.Item key={item.link}>
+        {/*<Image src={link.icon} alt={link.label} width={40} height={40} />*/}
+        {item.label}
+      </Menu.Item>
     ));
 
     if (menuItems) {
@@ -68,7 +95,9 @@ export default function HeaderMenu({ links }) {
               onClick={(event) => event.preventDefault()}
             >
               <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
+                <span className={classes.linkLabel}>
+                  {link.label}
+                </span>
                 <IconChevronDown size="0.9rem" stroke={1.5} />
               </Center>
             </a>
@@ -91,14 +120,29 @@ export default function HeaderMenu({ links }) {
   });
 
   return (
-    <Header height={70} mb={120} className={classes.header}>
+    <Header height={65} className={classes.header}>
       <Container className={classes.container}>
         <div className={classes.inner}>
-          <Image src="/img/LOGO-BENAIA.png" alt="logo" width={60} height={70}  />
+          <Image src="/img/LOGO-BENAIA.png" alt="logo" width={65} height={60}  />
           <Group spacing={5} className={classes.links}>
             {items}
           </Group>
-          <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
+          
+          <Menu
+            width={260}
+            position="bottom-end"
+            transitionProps={{ transition: 'pop-top-right' }}
+            onClose={() => setUserMenuOpened(false)}
+            onOpen={() => setUserMenuOpened(true)}
+            withinPortal
+          >
+            <Menu.Target>
+              <Burger opened={opened} onClick={toggle} className={cx(classes.burger, { [classes.userActive]: userMenuOpened })} size="sm" />
+            </Menu.Target>
+            <Menu.Dropdown>
+              {items}
+            </Menu.Dropdown>
+          </Menu>
         </div>
       </Container>
     </Header>

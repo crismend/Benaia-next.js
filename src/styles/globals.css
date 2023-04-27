@@ -310,10 +310,11 @@ font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe 
   
   /* footer */
   footer {
-    background: linear-gradient(rgba(99, 102, 11, 0.85), rgba(100, 21, 5, 0.85)), url(/img/silueta1.jpg);
+    /*background: linear-gradient(rgba(0, 0, 0, 0.63), rgba(0, 0, 0, 0.521)), url(/img/silueta1.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
+    color: #fff !important;
   }
   
   footer .footer-top {
