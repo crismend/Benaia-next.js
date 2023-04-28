@@ -49,6 +49,7 @@ const useStyles = createStyles((theme) => ({
   description: {
     color: theme.white,
     maxWidth: 600,
+    fontSize: rem(23),
 
     [theme.fn.smallerThan('sm')]: {
       maxWidth: '100%',
@@ -79,7 +80,7 @@ export default function Hero () {
         zIndex={0}
       />
       <Container className={classes.container}>
-        <Title className={classes.title} size="3xl">Alquila la mejor maquinaria pesada para tu proyecto con Benaia Ingeniería S.A.S.</Title>
+        <Title className={classes.title} size="3xl">Alquila la mejor maquinaria pesada para tu proyecto con <strong className="gradient-text">Benaia Ingeniería S.A.S.</strong></Title>
         <Text className={classes.description} size="xl" mt="xl">
           En Benaia, no solo ofrecemos servicios de desarrollo, ingeniería, arquitectura y obra civil de alto nivel, sino que también te proporcionamos acceso a la mejor maquinaria pesada para que tu proyecto sea un éxito. {/* Con nuestro servicio de alquiler, obtendras maquinaria de alta calidad y un equipo de profesionales altamente capacitados que te ayudarán en todo momento. */}
         </Text>
