@@ -1,5 +1,5 @@
 import { createStyles, Text, Container, ActionIcon, Group, rem } from '@mantine/core';
-import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
+import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram, IconBrandWhatsapp, IconBrandFacebook } from '@tabler/icons-react';
 import Image from 'next/image';
 
 import logo from "../assets/LOGO-BENAIA.png"
@@ -172,8 +172,8 @@ export default function FooterLinks() {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <Image src={logo} alt="Logo Benaia" width={60} height={50} />
-          <Text size="xs" color="dimmed" className={classes.description}>
+          <Image src={logo} alt="Logo Benaia" width={80} height={70} />
+          <Text size="md" color="dimmed" className={classes.description}>
             Alquiler de maquinaria pesada de alto nivel
           </Text>
         </div>
@@ -181,18 +181,18 @@ export default function FooterLinks() {
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          © 2020 mantine.dev. All rights reserved.
+          © 2023 Benaia Ingenieria S.A.S. Todos los derechos reservados.
         </Text>
 
-        <Group spacing={0} className={classes.social} position="right" noWrap>
+        <Group spacing={1} className={classes.social} position="right" noWrap>
           <ActionIcon size="lg">
-            <IconBrandTwitter size="1.05rem" stroke={1.5} />
+            <IconBrandWhatsapp size="2.05rem" stroke={1.5} />
           </ActionIcon>
           <ActionIcon size="lg">
-            <IconBrandYoutube size="1.05rem" stroke={1.5} />
+            <IconBrandFacebook size="2.05rem" stroke={1.5} />
           </ActionIcon>
           <ActionIcon size="lg">
-            <IconBrandInstagram size="1.05rem" stroke={1.5} />
+            <IconBrandInstagram size="2.05rem" stroke={1.5} />
           </ActionIcon>
         </Group>
       </Container>

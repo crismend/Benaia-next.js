@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useState } from 'react';
 import {
   createStyles,
@@ -7,19 +8,10 @@ import {
   Center,
   Burger,
   Container,
-  UnstyledButton,
   rem
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import {
-  IconLogout,
-  IconHeart,
-  IconStar,
-  IconMessage,
-  IconSettings,
-  IconPlayerPause,
-  IconTrash,
-  IconSwitchHorizontal,
   IconChevronDown,
 } from '@tabler/icons-react';
 import Image from 'next/image';
@@ -70,18 +62,23 @@ const useStyles = createStyles((theme) => ({
   linkLabel: {
     marginRight: rem(5),
   },
+
+  dropdown_mobile: {
+    justifyContent: "start"
+  }
 }));
 
 export default function HeaderMenu({ links }) {
   const [opened, { toggle }] = useDisclosure(false);
   const [userMenuOpened, setUserMenuOpened] = useState(false);
-  const { classes, theme, cx } = useStyles();
+  const { classes, cx } = useStyles();
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <Menu.Item key={item.link}>
-        {/*<Image src={link.icon} alt={link.label} width={40} height={40} />*/}
-        {item.label}
+        <Link href={item.link} style={{color: "#000", textDecoration: "none"}}>
+          {item.label}
+        </Link>
       </Menu.Item>
     ));
 
@@ -89,18 +86,18 @@ export default function HeaderMenu({ links }) {
       return (
         <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
           <Menu.Target>
-            <a
+            <Link
               href={link.link}
               className={classes.link}
               onClick={(event) => event.preventDefault()}
             >
-              <Center>
+              <Center className={classes.dropdown_mobile}>
                 <span className={classes.linkLabel}>
                   {link.label}
                 </span>
                 <IconChevronDown size="0.9rem" stroke={1.5} />
               </Center>
-            </a>
+            </Link>
           </Menu.Target>
           <Menu.Dropdown>{menuItems}</Menu.Dropdown>
         </Menu>
@@ -112,7 +109,6 @@ export default function HeaderMenu({ links }) {
         key={link.label}
         href={link.link}
         className={classes.link}
-        onClick={(event) => event.preventDefault()}
       >
         {link.label}
       </a>

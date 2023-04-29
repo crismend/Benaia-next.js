@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 import { createStyles, Title, Text, Button, Container, rem } from '@mantine/core';
 import { Dots } from './Dots';
 
@@ -93,7 +91,7 @@ export function AboutUs () {
   const { classes } = useStyles();
 
   return (
-    <Container className={classes.wrapper} size={1400}>
+    <Container className={classes.wrapper} size={1400} id="nosotros">
       <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
       <Dots className={classes.dots} style={{ left: 60, top: 0 }} />
       <Dots className={classes.dots} style={{ left: 0, top: 140 }} />

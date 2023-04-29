@@ -63,8 +63,8 @@ const useStyles = createStyles((theme) => ({
 
     [theme.fn.smallerThan('sm')]: {
       width: '40%',
-      height: rem(40),
-      fontSize: theme.fontSizes.xl,
+      fontSize: theme.fontSizes.md,
+      padding: "10px 6px"
     },
   },
 }));

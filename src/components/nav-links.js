@@ -1,7 +1,7 @@
 const links = [
   { link: "/", label: "Inicio" },
-  { link: "/nosotros", label: "Nosotros" },
-  { link: "/servicios", label: "Servicios" },
+  { link: "/#nosotros", label: "Nosotros" },
+  { link: "/#servicios", label: "Servicios" },
   { link: "#", label: "Equipos de alquiler",
     links: [
       {
@@ -21,7 +21,7 @@ const links = [
       }
     ]
   },
-  { link: "/portafolio", label: "Portafolio" },
+  { link: "/#portafolio", label: "Portafolio" },
   { link: "/trabaja-con-nosotros", label: "Trabaja con nosotros" }
 ]
 

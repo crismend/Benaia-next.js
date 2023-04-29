@@ -14,6 +14,7 @@ import {
   IconBuildingCastle,
   IconHeartHandshake,
   IconSpeakerphone,
+  IconStars,
   IconTractor
 } from '@tabler/icons-react';
 
@@ -49,16 +50,10 @@ const featuresData = [
     icon: IconHeartHandshake,
   },
   {
-    title: 'No third parties',
+    title: 'Calidad',
     description:
       'They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves',
-    icon: Icon3dCubeSphere,
-  },
-  {
-    title: 'No third parties',
-    description:
-      'They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves',
-    icon: Icon3dCubeSphere,
+    icon: IconStars,
   },
 ];
 
@@ -73,7 +68,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   description: {
-    maxWidth: 600,
+    maxWidth: 1000,
     margin: 'auto',
 
     '&::after': {
@@ -86,6 +81,10 @@ const useStyles = createStyles((theme) => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
+  },
+
+  highlight: {
+    color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6],
   },
 
   card: {
@@ -121,7 +120,7 @@ export default function Features () {
   ));
 
   return (
-    <Container size="lg" py="xl">
+    <Container size="lg" py="xl" id="servicios">
       <Group position="center">
         <Badge variant="filled" size="lg">
           los mejores en toda colombia
@@ -129,7 +128,7 @@ export default function Features () {
       </Group>
 
       <Title order={2} className={classes.title} ta="center" mt="sm">
-        Todos nuestros servicios
+        Todos nuestros <Text className={classes.highlight} component='strong'>servicios</Text>
       </Title>
 
       <Text c="dimmed" className={classes.description} ta="center" mt="md">
